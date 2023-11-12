@@ -9,19 +9,24 @@
     $(function(){
       $('#author').text('<HRTechCell> アジル　太郎'); // Q4.
       $('#author').css('color', 'blue'); // Q3.
-      const dates = $("page h2").text(); // 多分配列なのでループして取り出す？
+      const dates = $("h2"); // 多分配列なのでループして取り出す？
+      for(const date of dates){
+        const convertedDate = convertDateFormat(date.innerHTML);
+        date.innerHTML = date.innerHTML + "(" + getDayofTheWeek(convertedDate) + ")";
+      }
     });
-
+    
     const getDayofTheWeek = (date) => {
       const week =  ["日","月","火","水","木","金","土"];
-      return week[new Date(date).getDay];
+      date = new Date(date[0], date[1], date[2])
+      return week[date.getDay()];
     }
 
-    // window.onload = (event) => {
-    //   const author = document.querySelector('#author');
-    //   author.innerText = '<HRTechCell> アジル　太郎'; // Q4.
-    //   author.style.color = 'blue'; // Q3.
-    // };
+    const convertDateFormat = (date) => {
+      const month = date.split("月")[0];
+      const day = date.split("月")[1].split("日")[0];
+      return [2023, Number(month)-1, Number(day)]; // なぜかdateをnewするとき、月が1つ増えてしまうのでここで減らす
+    }
 
   </script>
 </head>
