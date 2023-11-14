@@ -8,7 +8,7 @@
   <script>
     $(function(){
       $('#author').text('<HRTechCell> アジル　太郎'); // Q4.
-      $('#author').css('color', 'blue'); // Q3.
+      // $('#author').css('color', 'blue'); // Q3.
       const dates = $("h2"); // 多分配列なのでループして取り出す？
       for(const date of dates){
         const convertedDate = convertDateFormat(date.innerHTML);
@@ -30,19 +30,32 @@
 
   </script>
 </head>
-<body>
+<body style="background-color: rgb(255, 253, 251);">
+  <header>
+    <h3 style="text-align: center;">夏休みの絵日木</h3>
+    <span id="author">アギル　太郎</span>  
+    <hr>
+  </header>
   <div id="note">
-    <h1>夏休みの絵日木</h1>
-    <span id="author">アギル　太郎</span>
     <div class="page">
       <h2>8月1日</h2>
-      <p>今日は、お昼ご飯が素麺だった。夏休みが始まって以来、15回目の素う麺である。</p>
+      <div  style="display: flex;">
+        <p>今日は、お昼ご飯が素麺だった。夏休みが始まって以来、15回目の素う麺である。</p>
+        <img src="./food_soumen.png" width="40%" height="40%">
+      </div>
     </div>
+    <hr>
     <div class="page">
       <h2>8月2日</h2>
-      <p>今日は、お昼ご飯が素麺だった。夏休みが始まって以来、16回目の素う麺である。</p>
-      <p>妹が色付きの麺だけを集めて自分のお椀に入ていた。</p>
+      <div style="display: flex;">
+        <div style="display: flex; flex-flow: column;">
+          <p>今日は、お昼ご飯が素麺だった。夏休みが始まって以来、16回目の素う麺である。</p>
+          <p>妹が色付きの麺だけを集めて自分のお椀に入ていた。</p>
+        </div>
+        <img src="./kids_nagashisoumen.png" width="40%" height="40%">
+      </div>
     </div>
+    <hr>
   </div>  
 </body>
 </html>
